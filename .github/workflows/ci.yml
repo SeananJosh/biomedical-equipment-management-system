@@ -52,7 +52,7 @@ jobs:
 
       - name: Create database tables
         run: |
-          python backend/create_tables.py
+          PYTHONPATH=. python backend/create_tables.py
       - name: Run tests
         working-directory: backend
         run: |
