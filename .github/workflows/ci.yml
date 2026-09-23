@@ -51,10 +51,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Create database tables
-        working-directory: backend
         run: |
-          python create_tables.py
-
+          python backend/create_tables.py
       - name: Run tests
         working-directory: backend
         run: |
