@@ -6,11 +6,13 @@ from app import app
 client = TestClient(app)
 
 
-def test_get_equipment():
+def test_get_equipment(created_equipment):
     response = client.get("/equipment")
-    data=response.json()
+    data = response.json()
+
     assert response.status_code == 200
-    assert isinstance(response.json(), list)
+    assert isinstance(data, list)
+    assert len(data) >= 1
     assert "name" in data[0]
 
 def test_get_missing_equipment():
